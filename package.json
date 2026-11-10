@@ -1,0 +1,62 @@
+{
+  "name": "elysia-autoscale",
+  "version": "0.1.0",
+  "description": "Scale an Elysia app across processes on one host: one process per busy core, retired when quiet. Bun only for now.",
+  "keywords": [
+    "elysia",
+    "elysiajs",
+    "bun",
+    "cluster",
+    "autoscale",
+    "workers",
+    "scale",
+    "reusePort",
+    "docker",
+    "cgroup"
+  ],
+  "author": "Sergii Yarochevskyi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aft1n/elysia-autoscale.git"
+  },
+  "homepage": "https://github.com/Aft1n/elysia-autoscale#readme",
+  "bugs": {
+    "url": "https://github.com/Aft1n/elysia-autoscale/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "bun": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "types": "./src/index.ts",
+  "sideEffects": true,
+  "files": [
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "bun": ">=1.4"
+  },
+  "peerDependencies": {
+    "elysia": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "elysia": "2.0.0-rc.4",
+    "@types/bun": "^1.4.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test NODE_NO_WARNINGS=1 bun test",
+    "prepublishOnly": "bun run test",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  }
+}
